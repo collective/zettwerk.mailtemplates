@@ -12,17 +12,12 @@ def read(*rnames):
 version = '1.0'
 
 long_description = (
-    read('README.txt')
+    read('README.md')
     + '\n' +
     'Change history\n'
     '**************\n'
     + '\n' +
     read('CHANGES.txt')
-    + '\n' +
-    'Detailed Documentation\n'
-    '**********************\n'
-    + '\n' +
-    read('zettwerk', 'mailtemplates', 'README.txt')
     + '\n' +
     'Contributors\n'
     '************\n'
