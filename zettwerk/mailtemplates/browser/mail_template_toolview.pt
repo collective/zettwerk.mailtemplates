@@ -7,7 +7,7 @@
       <tal:main-macro metal:define-macro="main">
 
 	<h1 class="documentFirstHeading" i18n:translate="">Choose recipients by user or group</h1>
-	<p class="description">Recipients can be choosen by username or groupname. If a username is given, the group filter is ignored. If whether username nor groupname is given, <strong>all existing members</strong> are taken.
+	<p class="description" i18n:translate="">Recipients can be choosen by username or groupname. If a username is given, the group filter is ignored. If whether username nor groupname is given, <strong>all existing members</strong> are taken.
 	</p>
 
 	<form action="."

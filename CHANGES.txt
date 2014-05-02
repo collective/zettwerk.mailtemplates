@@ -4,5 +4,5 @@ Changelog
 0.1 (2014-05-02)
 ----------------
 
-- Created recipe with ZopeSkel
-  [""]
+- Inital release (prototype)
+- Added uninstall profile

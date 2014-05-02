@@ -20,7 +20,6 @@
   <!-- <browser:jbot -->
   <!--     directory="skins_overrides" /> -->
 
-  <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
       title="Zettwerk Mailtemplates"
@@ -29,7 +28,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Zettwerk Mailtemplates - Uninstall"
+      directory="profiles/uninstall"
+      description="Removes Mailtemplates"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
   <include package=".browser" />
 

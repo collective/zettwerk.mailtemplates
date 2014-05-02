@@ -5,7 +5,6 @@ from zope import schema
 from zettwerk.mailtemplates import mailtemplatesMessageFactory as _
 
 
-
 class ITemplate(Interface):
     """Description of the Example Type"""
 

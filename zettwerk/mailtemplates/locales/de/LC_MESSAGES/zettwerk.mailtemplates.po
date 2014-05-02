@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-09-14 12:51+0000\n"
+"POT-Creation-Date: 2014-05-02 12:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 msgid "Choose recipients by user or group"
 msgstr "Empfänger über Benutzer oder Gruppe wählen "
 
-#: ./../browser/mail_template_toolview.pt:20
+#: ./../browser/mail_template_toolview.pt:22
 msgid "Enter a user id. If this field is given, the group filters are ignored."
 msgstr "Geben Sie eine Benutzer ID an. Wenn dieses Feld gesetzt ist, werden die weiteren Gruppen Filter ignoriert."
 
-#: ./../browser/mail_template_toolview.pt:42
+#: ./../browser/mail_template_toolview.pt:44
 msgid "Extra filters"
 msgstr "Zusätzliche Filter"
 
-#: ./../browser/mail_template_toolview.pt:26
+#: ./../browser/mail_template_toolview.pt:28
 msgid "Group"
 msgstr "Gruppe"
 
-#: ./../browser/mail_template_toolview.pt:29
+#: ./../browser/mail_template_toolview.pt:31
 msgid "Leave empty to choose all portal users."
 msgstr "Leer lassen um alle Portal Benutzer auszuwählen."
 
@@ -51,37 +51,41 @@ msgstr "MailTemplateTool"
 msgid "Not logged on members"
 msgstr "Nicht angemeldete Mitglieder"
 
-#: ./../browser/mail_template_toolview.pt:54
+#: ./../browser/mail_template_toolview.pt:56
 msgid "Object filters"
 msgstr "Objekt-Filter"
+
+#: ./../browser/mail_template_toolview.pt:10
+msgid "Recipients can be choosen by username or groupname. If a username is given, the group filter is ignored. If whether username nor groupname is given, <strong>all existing members</strong> are taken."
+msgstr "Empfänger können über Benutzer- oder Gruppennamen gewählt werden. Wenn ein Benutzer übergeben wird, wird der Gruppen Filter ignoriert. Wenn weder ein Benutzer- noch Gruppenname übergeben wird, werden <strong>alle vorhandene Mitglieder</strong> ausgewählt."
 
 #: ./../browser/templateview.pt:15
 msgid "Rendered mail body"
 msgstr "Ausgabe des E-Mail Texts"
 
-#: ./../browser/mail_template_toolview.pt:80
+#: ./../browser/mail_template_toolview.pt:82
 msgid "Send Emails"
 msgstr "E-Mails senden"
 
-#: ./../browser/mail_template_toolview.pt:84
+#: ./../browser/mail_template_toolview.pt:86
 msgid "Simulate and view receivers"
 msgstr "Simuliere and zeige Empfänger"
 
-#: ./../browser/mail_template_toolview.pt:70
+#: ./../browser/mail_template_toolview.pt:72
 #: ./../profiles/default/types/Template.xml
 msgid "Template"
 msgstr "Vorlage"
 
 #: ./../content/template.py:28
-#: ./../interfaces/template.py:14
+#: ./../interfaces/template.py:13
 msgid "Template id"
 msgstr "Vorlagen-Id"
 
-#: ./../browser/mail_template_toolview.pt:17
+#: ./../browser/mail_template_toolview.pt:19
 msgid "User"
 msgstr "Benutzer"
 
-#: ./../interfaces/template.py:16
+#: ./../interfaces/template.py:15
 msgid "a unique id for the template"
 msgstr "Eine eindeutige Id für die Vorlage"
 
