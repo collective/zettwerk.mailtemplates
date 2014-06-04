@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-This module contains the tool of zettwerk.mailtemplates
-"""
 import os
 from setuptools import setup, find_packages
 
@@ -12,7 +9,7 @@ def read(*rnames):
 version = '0.1.1.dev0'
 
 long_description = (
-    read('README.md')
+    read('README.txt')
     + '\n' +
     'Change history\n'
     '**************\n'
@@ -31,7 +28,7 @@ tests_require = ['zope.testing']
 
 setup(name='zettwerk.mailtemplates',
       version=version,
-      description="",
+      description="Create and send mail templates in plone.",
       long_description=long_description,
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
@@ -40,9 +37,9 @@ setup(name='zettwerk.mailtemplates',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         ],
-      keywords='',
-      author='',
-      author_email='',
+      keywords='Plone',
+      author='Jörg Kubaile / zettwerk GmbH',
+      author_email='jk@zettwerk.com',
       url='http://svn.plone.org/svn/collective/',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
