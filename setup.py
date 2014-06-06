@@ -10,10 +10,7 @@ version = '0.1.1'
 
 long_description = (
     read('README.txt')
-    + '\n' +
-    'Change history\n'
-    '**************\n'
-    + '\n' +
+    + '\n\n' +
     read('CHANGES.txt')
     + '\n' +
     'Contributors\n'

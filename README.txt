@@ -28,4 +28,5 @@ By filtering a group, you can provide an additional filter. These are registered
 Todos
 =====
 
-Tests and api documentation needed. Also add the ability to override plone's default mail templates (registration, forgot password)
+* Tests and api documentation needed.
+* Also add the ability to override plone's default mail templates (registration, forgot password)

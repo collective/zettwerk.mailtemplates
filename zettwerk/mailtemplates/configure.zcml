@@ -28,6 +28,18 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <!-- do not all the setuphandler via import-steps.xml: otherwise the tool is not available -->
+  <genericsetup:importStep
+      name="zettwerk.mailtemplates-various"
+      title="Zettwerk Mailtemplates various"
+      description=""
+      handler="zettwerk.mailtemplates.setuphandler.import_various"
+      >
+      <depends name="toolset"/>
+      <depends name="types"/>
+  </genericsetup:importStep>
+
+
   <genericsetup:registerProfile
       name="uninstall"
       title="Zettwerk Mailtemplates - Uninstall"
