@@ -1,10 +1,10 @@
 Changelog
 =========
 
-0.1.3 (unreleased)
-------------------
+0.2 (2014-07-11)
+----------------
 
-- Nothing changed yet.
+- Added support to override Plone's default templates: registration and password reset.
 
 
 0.1.2 (2014-06-06)

@@ -25,8 +25,12 @@ Click on "portal_mail_templates" on the breadcrumb. Now you can filter the recip
 By filtering a group, you can provide an additional filter. These are registered utilities for zettwerk.mailtemplates.interfaces.IMessageTemplateUserFilter - see the configure.zcml and the utility with the name "registration_reminder" for an example. This on returns only users which have never logged in to your plone site.
 
 
+Override Plone's default templates
+==================================
+
+It is common to customize Plone's default templates for registration and password reset. zettwerk.mailtemplates supports this through the web - no need to add custom template overrides via code. Just add a template with id 'registration' or 'password_reset' and it is used - that's all.
+
 Todos
 =====
 
 * Tests and api documentation needed.
-* Also add the ability to override plone's default mail templates (registration, forgot password)

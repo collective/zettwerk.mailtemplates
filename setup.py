@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.1.3.dev0'
+version = '0.2'
 
 long_description = (
     read('README.txt')
@@ -37,7 +37,7 @@ setup(name='zettwerk.mailtemplates',
       keywords='Plone',
       author='Jörg Kubaile / zettwerk GmbH',
       author_email='jk@zettwerk.com',
-      url='http://svn.plone.org/svn/collective/',
+      url='http://zettwerk.com',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['zettwerk', ],
