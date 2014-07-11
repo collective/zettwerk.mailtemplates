@@ -42,5 +42,11 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="get_unprotected_rendered_template"
+      class=".unprotectedrendered.UnprotectedRendered"
+      permission="cmf.MailForgottonPassword"
+      />
 
 </configure>

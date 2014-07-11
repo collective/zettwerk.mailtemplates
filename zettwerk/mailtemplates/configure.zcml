@@ -17,8 +17,8 @@
 
   <include package="z3c.jbot" file="meta.zcml" />
 
-  <!-- <browser:jbot -->
-  <!--     directory="skins_overrides" /> -->
+  <browser:jbot
+      directory="template_overrides" />
 
   <genericsetup:registerProfile
       name="default"

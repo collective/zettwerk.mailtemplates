@@ -61,6 +61,15 @@ class MailTemplateTool(UniqueObject, folder.ATFolder):
         except ValueError:
             return False
 
+    def hasTemplate(self, template_id):
+        """ helpler method to check the availabililty of a template
+        by id. """
+        try:
+            self.getTemplate(template_id)
+            return True
+        except ValueError:
+            return False
+
     def getTemplate(self, template_id):
         """ return a template by template id """
         for template in self.values():
@@ -68,7 +77,7 @@ class MailTemplateTool(UniqueObject, folder.ATFolder):
                 return template
         raise ValueError('Invalid template id')
 
-    def sendTemplate(self, template_id, member_id, resetDict=None):
+    def sendTemplate(self, template_id, member_id):
         """ send the chosen template_id to mto from mfrom
         fill the placeholder with values relating to member
         """
@@ -98,7 +107,7 @@ class MailTemplateTool(UniqueObject, folder.ATFolder):
             mfrom = from_address
 
         if mto:
-            body = template.getRenderedBody(member, **resetDict)
+            body = template.getRenderedBody(member)
             subject = template.Title()
 
             mh = getToolByName(self, 'MailHost')

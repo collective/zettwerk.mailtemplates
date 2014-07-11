@@ -95,12 +95,12 @@ class Template(base.ATCTContent):
 
         body = self.getBody()
         if not preview:
-            if body.find('%(password_reset_link)') != -1 or \
-                    body.find('%(expires_string)') != -1:
+            if body.find('%(password_reset_link)s') != -1 or \
+                    body.find('%(expires_string)s') != -1:
                 ## returns a dict with reset data
                 reset = rtool.requestReset(username)
                 data.update(
-                    {'passwort_reset_link':
+                    {'password_reset_link':
                          rtool.pwreset_constructURL(reset['randomstring'])}
                     )
                 data.update(
@@ -110,7 +110,7 @@ class Template(base.ATCTContent):
 
         else:
             data.update(
-                {'passwort_reset_link': data['portal_url']}
+                {'password_reset_link': data['portal_url']}
                 )
             data.update(
                 {'expires_string':
@@ -133,7 +133,7 @@ class Template(base.ATCTContent):
                 return body.encode(output_enc)
             else:
                 return body
-        except:
-            return 'ERROR'
+        except Exception as reason:
+            return 'ERROR: %s' % (repr(reason))
 
 atapi.registerType(Template, PROJECTNAME)
