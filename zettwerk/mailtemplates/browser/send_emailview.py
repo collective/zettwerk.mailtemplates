@@ -45,7 +45,7 @@ class send_emailView(BrowserView):
         for member in targets:
             username = member.getUserName()
             portal_templates.sendTemplate(
-                template_id, username, {}
+                template_id, username
                 )
 
         return "sent %s emails" % (len(targets))
