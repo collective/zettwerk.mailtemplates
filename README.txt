@@ -24,6 +24,10 @@ Click on "portal_mail_templates" on the breadcrumb. Now you can filter the recip
 
 By filtering a group, you can provide an additional filter. These are registered utilities for zettwerk.mailtemplates.interfaces.IMessageTemplateUserFilter - see the configure.zcml and the utility with the name "registration_reminder" for an example. This on returns only users which have never logged in to your plone site.
 
+Recursive Groups
+================
+
+By selecting a group only the toplevel group members are used. If the group contains other groups, there members are not used.
 
 Override Plone's default templates
 ==================================
