@@ -1,5 +1,6 @@
 from zope.interface import implements, Interface
 from zope.component import queryUtility
+from Acquisition import aq_base
 
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -101,4 +102,9 @@ class send_emailView(BrowserView):
             if not group:
                 raise ValueError('Invalid group_id given: %s' % (group_id))
             targets = group.getGroupMembers()
+
+        ## only use top-level members, no members of recursive groups
+        return [t for t in targets \
+                if not (hasattr(aq_base(t), 'isGroup') and \
+                        aq_base(t).isGroup())]
         return targets
