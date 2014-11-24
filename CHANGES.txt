@@ -1,6 +1,12 @@
 Changelog
 =========
 
+UNRELEASED
+----------
+
+- Add Content Provider functionality: Use global utilities to provide
+  additional variables for use inside templates.
+
 0.2.2 (2014-10-01)
 ------------------
 

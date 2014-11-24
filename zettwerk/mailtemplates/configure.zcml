@@ -55,4 +55,8 @@
 	   name="registration_reminder"
 	   />
 
+  <utility factory=".providers.passwordreset.PasswordResetContentProvider"
+	   name="passwordreset"
+           />
+
 </configure>

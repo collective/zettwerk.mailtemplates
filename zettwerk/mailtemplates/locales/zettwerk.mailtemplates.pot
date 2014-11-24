@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-06-06 07:53+0000\n"
+"POT-Creation-Date: 2014-11-24 10:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,8 +21,20 @@ msgstr ""
 msgid "Choose recipients by user or group"
 msgstr ""
 
+#: ./../content/template.py:45
+msgid "Content Providers"
+msgstr ""
+
+#: ./../content/template.py:46
+msgid "Content Providers provide one or more variables to insert content into messages. This content can differ for each recipient. After selecting one or more content providers for a template you can use the variables they provide in the template."
+msgstr ""
+
 #: ./../browser/mail_template_toolview.pt:22
 msgid "Enter a user id. If this field is given, the group filters are ignored."
+msgstr ""
+
+#: ./../content/template.py:63
+msgid "Enter the mail subject"
 msgstr ""
 
 #: ./../browser/mail_template_toolview.pt:44
@@ -39,6 +51,10 @@ msgstr ""
 
 #: ./../browser/templateview.pt:12
 msgid "Mail body"
+msgstr ""
+
+#: ./../content/template.py:66
+msgid "Mail body text"
 msgstr ""
 
 #: ./../browser/templateview.pt:9
@@ -58,6 +74,10 @@ msgstr ""
 msgid "Object filters"
 msgstr ""
 
+#: ./../providers/passwordreset.py:17
+msgid "Password Reset Link (Variables: password_reset_link and expiry_date)"
+msgstr ""
+
 #: ./../browser/mail_template_toolview.pt:10
 msgid "Recipients can be choosen by username or groupname. If a username is given, the group filter is ignored. If whether username nor groupname is given, <strong>all existing members</strong> are taken."
 msgstr ""
@@ -74,12 +94,16 @@ msgstr ""
 msgid "Simulate and view receivers"
 msgstr ""
 
+#: ./../content/template.py:62
+msgid "Subject"
+msgstr ""
+
 #: ./../browser/mail_template_toolview.pt:72
 #: ./../profiles/default/types/Template.xml
 msgid "Template"
 msgstr ""
 
-#: ./../content/template.py:28
+#: ./../content/template.py:31
 #: ./../interfaces/template.py:13
 msgid "Template id"
 msgstr ""
@@ -88,11 +112,15 @@ msgstr ""
 msgid "User"
 msgstr ""
 
+#: ./../content/template.py:67
+msgid "You can use python string substitution syntax to insert dynamic values. Supported variables are: username, fullname, portal_url, portal_name, and additional variables provided by enabled content providers. Example: "Hello %(fullname)s""
+msgstr ""
+
 #: ./../interfaces/template.py:15
 msgid "a unique id for the template"
 msgstr ""
 
-#: ./../content/template.py:29
+#: ./../content/template.py:32
 msgid "a unique id for the template. You can use a  custom one or use one of the defaults: 'registration', 'password_reset'"
 msgstr ""
 

@@ -2,8 +2,8 @@
 """
 
 from zope.interface import implements
+from zope.component import getUtilitiesFor, getUtility
 
-from DateTime import DateTime
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
@@ -11,7 +11,10 @@ from Products.ATContentTypes.content import schemata
 # -*- Message Factory Imported Here -*-
 from zettwerk.mailtemplates import mailtemplatesMessageFactory as _
 
-from zettwerk.mailtemplates.interfaces import ITemplate
+from zettwerk.mailtemplates.interfaces import (
+    ITemplate,
+    IMessageTemplateContentProvider
+)
 from zettwerk.mailtemplates.config import PROJECTNAME
 
 from Products.CMFCore.utils import getToolByName
@@ -26,12 +29,28 @@ TemplateSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
         storage=atapi.AnnotationStorage(),
         widget=atapi.StringWidget(
             label=_(u"Template id"),
-            description=_(u"a unique id for the template. You can use a " \
-                              " custom one or use one of the defaults: " \
-                              "'registration', 'password_reset'"),
+            description=_(u"a unique id for the template. You can use a "
+                          u" custom one or use one of the defaults: "
+                          u"'registration', 'password_reset'"),
         ),
         required=True,
     ),
+
+    atapi.LinesField(
+        'contentProviders',
+        storage=atapi.AnnotationStorage(),
+        vocabulary='listContentProviders',
+        enforceVocabulary=True,
+        widget=atapi.MultiSelectionWidget(
+            label=_(u'Content Providers'),
+            description=_(
+                u'Content Providers provide one or more variables to insert '
+                u'content into messages. This content can differ for each '
+                u'recipient. After selecting one or more content providers '
+                u'for a template you can use the variables they provide in '
+                u'the template.')
+        )
+    )
 
 
 ))
@@ -40,16 +59,18 @@ TemplateSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 # they work well with the python bridge properties.
 
 TemplateSchema['title'].storage = atapi.AnnotationStorage()
-TemplateSchema['title'].widget.label = 'Subject'
-TemplateSchema['title'].widget.description = 'Enter the mail subject'
+TemplateSchema['title'].widget.label = _(u'Subject')
+TemplateSchema['title'].widget.description = _(u'Enter the mail subject')
 
 TemplateSchema['description'].storage = atapi.AnnotationStorage()
-TemplateSchema['description'].widget.label = 'Mail body text'
-TemplateSchema['description'].widget.description = '''
-You can use python string substitution syntax to insert dynamic values.
-Supported keywords are: username, fullname, portal_url, portal_name,
-password_reset_link, expires_string. Example: "Hello %(fullname)s"
-'''
+TemplateSchema['description'].widget.label = _(u'Mail body text')
+TemplateSchema['description'].widget.description = _(
+    u'You can use python string substitution syntax to insert dynamic '
+    u'values. Supported variables are: username, fullname, portal_url, '
+    u'portal_name, and additional variables provided by enabled content '
+    u'providers. Example: "Hello %(fullname)s"'
+)
+
 
 schemata.finalizeATCTSchema(TemplateSchema, moveDiscussion=False)
 
@@ -75,13 +96,17 @@ class Template(base.ATCTContent):
         """ return the description """
         return self.Description()
 
+    def listContentProviders(self):
+        providers = getUtilitiesFor(IMessageTemplateContentProvider)
+        return [(name, utility.getDescription()) for
+                name, utility in providers if name]
+
     def getRenderedBody(self, member, preview=False):
         """ will fail on invalid substitutions
         returns empty strings if the member does not
         have the information or is empty
         """
         ptool = getToolByName(self, 'portal_url')
-        rtool = getToolByName(self, 'portal_password_reset')
 
         portal_url = ptool()
         portal_name = ptool.getProperty('title', '')
@@ -94,28 +119,14 @@ class Template(base.ATCTContent):
                 'portal_name': portal_name}
 
         body = self.getBody()
-        if not preview:
-            if body.find('%(password_reset_link)s') != -1 or \
-                    body.find('%(expires_string)s') != -1:
-                ## returns a dict with reset data
-                reset = rtool.requestReset(username)
-                data.update(
-                    {'password_reset_link':
-                         rtool.pwreset_constructURL(reset['randomstring'])}
-                    )
-                data.update(
-                    {'expires_string':
-                         self.toLocalizedTime(reset['expires'], long_format=1)}
-                    )
 
-        else:
-            data.update(
-                {'password_reset_link': data['portal_url']}
-                )
-            data.update(
-                {'expires_string':
-                     self.toLocalizedTime(DateTime(), long_format=1)}
-                )
+        for content_provider in self.getContentProviders():
+            utility = getUtility(IMessageTemplateContentProvider,
+                                 name=content_provider)
+            if preview:
+                data.update(utility.getPreviewContent(member))
+            else:
+                data.update(utility.getContentForMember(member))
 
         return body % data
 

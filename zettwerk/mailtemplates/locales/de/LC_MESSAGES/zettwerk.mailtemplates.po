@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-06-06 07:53+0000\n"
+"POT-Creation-Date: 2014-11-24 10:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,21 @@ msgstr ""
 msgid "Choose recipients by user or group"
 msgstr "Empfänger über Benutzer oder Gruppe wählen "
 
+#: ./../content/template.py:45
+msgid "Content Providers"
+msgstr "Inhaltsgeneratoren"
+
+#: ./../content/template.py:46
+msgid "Content Providers provide one or more variables to insert content into messages. This content can differ for each recipient. After selecting one or more content providers for a template you can use the variables they provide in the template."
+msgstr "Inhaltsgeneratoren stellen eine oder mehrere Variablen zur Verfügung, welche verwendet werden können, um generierte Inhalte in Nachrichten einzufügen. Diese Inhalte können sich je nach Empfänger unterscheiden. Nach Auswahl eines oder meherer Inhaltsgeneratoren können die von diesen Generatoren zur Verfügung gestellten Variablen im Template verwendet werden."
+
 #: ./../browser/mail_template_toolview.pt:22
 msgid "Enter a user id. If this field is given, the group filters are ignored."
 msgstr "Geben Sie eine Benutzer ID an. Wenn dieses Feld gesetzt ist, werden die weiteren Gruppen Filter ignoriert."
+
+#: ./../content/template.py:63
+msgid "Enter the mail subject"
+msgstr "Geben Sie den Betreff der E-Mail ein."
 
 #: ./../browser/mail_template_toolview.pt:44
 msgid "Extra filters"
@@ -36,6 +48,10 @@ msgstr "Leer lassen um alle Portal Benutzer auszuwählen."
 
 #: ./../browser/templateview.pt:12
 msgid "Mail body"
+msgstr "E-Mail Text"
+
+#: ./../content/template.py:66
+msgid "Mail body text"
 msgstr "E-Mail Text"
 
 #: ./../browser/templateview.pt:9
@@ -55,6 +71,10 @@ msgstr "Nicht angemeldete Mitglieder"
 msgid "Object filters"
 msgstr "Objekt-Filter"
 
+#: ./../providers/passwordreset.py:17
+msgid "Password Reset Link (Variables: password_reset_link and expiry_date)"
+msgstr "Password zurücksetzen Link (Variablen: password_reset_link und expiry_date)"
+
 #: ./../browser/mail_template_toolview.pt:10
 msgid "Recipients can be choosen by username or groupname. If a username is given, the group filter is ignored. If whether username nor groupname is given, <strong>all existing members</strong> are taken."
 msgstr "Empfänger können über Benutzer- oder Gruppennamen gewählt werden. Wenn ein Benutzer übergeben wird, wird der Gruppen Filter ignoriert. Wenn weder ein Benutzer- noch Gruppenname übergeben wird, werden <strong>alle vorhandene Mitglieder</strong> ausgewählt."
@@ -71,12 +91,16 @@ msgstr "E-Mails senden"
 msgid "Simulate and view receivers"
 msgstr "Simuliere and zeige Empfänger"
 
+#: ./../content/template.py:62
+msgid "Subject"
+msgstr "Betreff"
+
 #: ./../browser/mail_template_toolview.pt:72
 #: ./../profiles/default/types/Template.xml
 msgid "Template"
 msgstr "Vorlage"
 
-#: ./../content/template.py:28
+#: ./../content/template.py:31
 #: ./../interfaces/template.py:13
 msgid "Template id"
 msgstr "Vorlagen-Id"
@@ -85,11 +109,15 @@ msgstr "Vorlagen-Id"
 msgid "User"
 msgstr "Benutzer"
 
+#: ./../content/template.py:67
+msgid "You can use python string substitution syntax to insert dynamic values. Supported variables are: username, fullname, portal_url, portal_name, and additional variables provided by enabled content providers. Example: \"Hello %(fullname)s\""
+msgstr "Sie können Python Stringersetzungssyntax zum Einfügen von dynamischen Werten verwenden. Unterstützte Variablen sind: username, fullname, portal_url, portal_name, sowie zusätzliche von aktivierten Inhaltsgeneratoren zur Verfügung gestellte Variablen. Beispiel: \"Hallo %(fullname)s\""
+
 #: ./../interfaces/template.py:15
 msgid "a unique id for the template"
 msgstr "Eine eindeutige Id für die Vorlage"
 
-#: ./../content/template.py:29
+#: ./../content/template.py:32
 msgid "a unique id for the template. You can use a  custom one or use one of the defaults: 'registration', 'password_reset'"
 msgstr "Eine eindeutige Id für die Vorlage. Sie kann frei vergeben werden, oder aber auch die Standard Vorlagen überschrieben werden: 'registration', 'password_reset'"
 
